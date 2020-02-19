@@ -1,0 +1,83 @@
+-------------------------------------------------------
+Version 1.01
+
+--in \scripts\main.js:
+
+Updated:
+	function ResetLayout() {
+	    initGridRow(defaultItemGrid);
+	    updateGridItemAll();
+	}
+
+To:
+	function ResetLayout() {
+		initGridRow(defaultItemGrid);
+		updateGridItemAll();
+	
+		document.getElementById('itemdiv').style.zoom = 100 / 100;
+		document.getElementById('itemdiv').style.zoom = 100 / 100;
+		document.getElementById('itemdiv').style.MozTransform = 'scale(' + (100 / 100) + ')';
+		document.getElementById('itemdiv').style.MozTransformOrigin = '0 0';
+		document.getElementById('itemdivsize').innerHTML='100%';
+		document.getElementById('itemrange').value=100;
+	
+		document.getElementById('mapdiv').style.zoom = 100 / 100;
+		document.getElementById('mapdiv').style.zoom = 100 / 100;
+		document.getElementById('mapdiv').style.MozTransform = 'scale(' + (100 / 100) + ')';
+		document.getElementById('mapdiv').style.MozTransformOrigin = '0 0';
+		document.getElementById('mapdivsize').innerHTML='100%';
+		document.getElementById('maprange').value=100;
+	}
+
+
+--in \scripts\chests.js:
+
+Updated:
+	{
+	        name: "North Faron Cave Small Chest",
+	        x: "54.33%",
+	        y: "68.08%",
+	        isAvailable: function () {
+	            return "available";
+	        },
+	},
+	{
+	        name: "Near Shop Chest",
+	        x: "48.66%",
+	        y: "69.6%",	
+	        isAvailable: function() {
+	            return "available";
+	        },
+	},
+
+To:
+	{
+	        name: "North Faron Cave Small Chest",
+	        x: "54.33%",
+	        y: "68.08%",
+	        isAvailable: function() {
+	            if (items.Lanturn) {
+	                return "available";
+	            }
+	            return "unavailable"
+	        },
+	},
+	{
+	        name: "Near Shop Chest",
+	        x: "48.66%",
+	        y: "69.6%",
+	        isAvailable: function() {
+	            if (items.Lanturn) {
+	                return "available";
+        	    }
+	            return "unavailable"
+	        },
+	},
+
+-- in index.html 
+
+Updated:
+
+	Added the id: itemrange to the item-size scroller
+	Added the id: maprange to the map-size scroller
+---------------------------------------------------------------
