@@ -274,24 +274,6 @@ function showPrizes(sender) {
     saveCookie();
 }
 
-function setGanonLogic(sender) {
-    ganonlogic = sender.value;
-    updateMap();
-    saveCookie();
-}
-
-function setLens(sender){
-    lensLogic = sender.value;
-    updateMap()
- }
- function setChu(sender){
-    if (sender.checked){
-        chuInLogic = true
-    }else {
-        chuInLogic = false
-    }
-     updateMap();
- }
 
 
 function setZoom(target, sender) {
@@ -356,9 +338,23 @@ function EditMode() {
 
 
 function ResetLayout() {
-    initGridRow(defaultItemGrid);
-    updateGridItemAll();
-}
+		initGridRow(defaultItemGrid);
+		updateGridItemAll();
+	
+		document.getElementById('itemdiv').style.zoom = 100 / 100;
+		document.getElementById('itemdiv').style.zoom = 100 / 100;
+		document.getElementById('itemdiv').style.MozTransform = 'scale(' + (100 / 100) + ')';
+		document.getElementById('itemdiv').style.MozTransformOrigin = '0 0';
+		document.getElementById('itemdivsize').innerHTML='100%';
+		document.getElementById('itemrange').value=100;
+	
+		document.getElementById('mapdiv').style.zoom = 100 / 100;
+		document.getElementById('mapdiv').style.zoom = 100 / 100;
+		document.getElementById('mapdiv').style.MozTransform = 'scale(' + (100 / 100) + ')';
+		document.getElementById('mapdiv').style.MozTransformOrigin = '0 0';
+		document.getElementById('mapdivsize').innerHTML='100%';
+		document.getElementById('maprange').value=100;
+	}
 
 
 function ResetTracker() {
@@ -916,3 +912,4 @@ function addLoadEvent(func) {
     }
 }
 addLoadEvent(preloader);
+// Created by Lunar Soap and TestRunner

@@ -100,7 +100,7 @@ var dungeons = [
         y: "85.84%",
         chestlist: {
             'Wooden Sword Chest': { isAvailable: function () {
-                return (items.Slingshot || items.Boomerang); }, },
+                return (items.Slingshot); }, },
             'Link House Basement Chest': { isAvailable: function () {
                 return items.Lanturn; }, },
             'Fishing Rod': { isAvailable: function () {
@@ -970,8 +970,11 @@ var chests = [
         name: "North Faron Cave Small Chest",
         x: "54.33%",
         y: "68.08%",
-        isAvailable: function () {
-            return "available";
+        isAvailable: function() {
+            if (items.Lanturn) {
+                return "available";
+            }
+            return "unavailable";
         },
     },
     {
@@ -1041,13 +1044,16 @@ var chests = [
         },
     },
     {
-        name: "Near Shop Chest",
-        x: "48.66%",
-        y: "69.6%",
-        isAvailable: function() {
-            return "available";
-        },
-    },
+	        name: "Near Shop Chest",
+	        x: "48.66%",
+	        y: "69.6%",
+	        isAvailable: function() {
+	            if (items.Lanturn) {
+	                return "available";
+        	    }
+	            return "unavailable"
+	        },
+	},
     {
         name: "Master Sword",
         x: "44.20%",
