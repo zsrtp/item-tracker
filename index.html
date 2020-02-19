@@ -60,14 +60,14 @@
             <button type="button" onclick="ResetLayout()">Reset Layout</button>
             <button type="button" onclick="ResetTracker()">Reset Tracker</button>
             <br>
-            Size<input type="range" name='itemdivsize' value='100' max='200' min='1' onchange="setZoom('itemdiv', this)">
+            Size<input type="range" name='itemdivsize' id='itemrange' value='100' max='200' min='1' onchange="setZoom('itemdiv', this)">
             <span id='itemdivsize'>100%</span><br>
             <input type="checkbox" name="showprizes" onchange="showPrizes(this)">Show Dungeon Items (BETA)<br>
         </fieldset>
         <fieldset>
             <legend>Map Tracker</legend>
             <input type="checkbox" name="showmap" checked='true' onchange="showTracker('mapdiv', this)">Enabled<br>
-            Size<input type="range" name='mapdivsize' value='100' max='200' min='1' onchange="setZoom('mapdiv', this)">
+            Size<input type="range" name='mapdivsize' id='maprange' value='100' max='200' min='1' onchange="setZoom('mapdiv', this)">
             <span id='mapdivsize'>100%</span><br>
             Position:
             <input type='radio' name='mapposition' value='Side' checked='true' onclick="setOrder(false)">Side
@@ -81,7 +81,7 @@
     <br/>
     <br/>
     <footer style='bottom:0; width:100%; text-align: center; position: relative; color:grey'>
-        Twilight Princess Randomizer Tracker v1.0 
+        Twilight Princess Randomizer Tracker v1.01 
     </footer>
 </body>
 </html>
