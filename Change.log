@@ -1,6 +1,0 @@
------------------------------------------------------
-Version 1.01 
-
-Fixed a bug where clicking the "reset layout" button would not reset the layouts for the item tracker or map tracker
-Updated logic for Faron Woods to account for the lanturn being needed to go through the cave.
-------------------------------------------------------
