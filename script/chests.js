@@ -1,3 +1,6 @@
+
+var d = 0;
+var k = 0;
 function generalCanGetChest(chestlist) {
     var canGet = 0;
     var unopened = 0;
@@ -13,19 +16,35 @@ function generalCanGetChest(chestlist) {
         }
     }
 
+
+    c = document.getElementsByClassName("mapspan chest available").length;
+    d = document.getElementsByClassName("mapspan dungeon available").length;
+
+
+    
+ 
+
     if (unopened == 0) {
         return "opened";
+        
     }
     if (canGet == unopened) {
         return "available";
+        c++;
     }
     if (canGet == 0) {
         return "unavailable";
+        c--;
     }
     return "possible";
 }
 
 
+function checkCountMinus() {
+    for (var k = 0; k < 1; k++) {
+        c--;
+    }
+}
 
 function hasBoom()
 {
@@ -46,9 +65,9 @@ function canPlay(song){
     return (song && items.Ocarina);
 }
 
-//Need lanturn to burn the web at the entrance
+//Need lanturn to burn the web at the entrance and sword to get past Golden Wolf
 function canAccessForest() {
-    return (items.Lanturn);
+    return (items.Lanturn && items.Sword >= 2);
 }
 
 //Need iron boots to beat Gor Coron
@@ -114,7 +133,7 @@ var dungeons = [
             'Ordon Sword': { isAvailable: function () {
                 return true; }, },
             'Iron Boots Chest': { isAvailable: function () {
-                return true; }, },
+                return (items.Shadow1); }, },
         },
         isBeatable: function() {
             return this.canGetChest();
@@ -791,7 +810,7 @@ var dungeons = [
             'Hylian Shield': { isAvailable: function () {
                 return items.Shadow1; }, },
             'Hawkeye': { isAvailable: function () {
-                return items.Bow; }, },
+                return items.Bow && items.Shield >1; }, },
             'Zora Armor': { isAvailable: function () {
                 return items.Lanturn && items.IronBoots && items.Boomerang && items.Bow && hasBoom(); }, },
             'Coral Earring': { isAvailable: function () {
@@ -858,6 +877,54 @@ var dungeons = [
                 return items.Soul >1; }, },
             'Invoice': { isAvailable: function () {
                 return items.Charm >=1; }, },
+            'Agitha 1st Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 2nd Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 3rd Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 4th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 5th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 6th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 7th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 8th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 9th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 10th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 11th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 12th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 13th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 14th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 15th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 16th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 17th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 18th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 19th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 20th Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 21st Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 22nd Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha 23rd Bug': { isAvailable: function () {
+                return items.Bugs; }, },
+            'Agitha All Bugs': { isAvailable: function () {
+                return items.Bugs; }, },
         },
         isBeatable: function() {
             return this.canGetChest();
@@ -1034,7 +1101,18 @@ var chests = [
     },
     {
         name: "Mist - Owl Statue Chest",
-        x: "54.41%",
+        x: "54.01%",
+        y: "69.6%",
+        isAvailable: function () {
+            if (items.Dominion && canSmash() && items.Sword >=3) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
+        name: "Mist - Skybook Letter",
+        x: "55.01%",
         y: "69.6%",
         isAvailable: function () {
             if (items.Dominion && canSmash()) {
@@ -1161,7 +1239,7 @@ var chests = [
         x: "38.95%",
         y: "55.26%",
         isAvailable: function() {
-            if (items.Sword >2) {
+            if (items.Sword >=3 && items.Shadow3) {
                 return "available";
             }
             return "unavailable";
@@ -1196,7 +1274,7 @@ var chests = [
         x: "38.41%",
         y: "45.92%",
         isAvailable: function() {
-            if (items.Sword >2 && items.IronBoots) {
+            if (items.Sword >2 && items.IronBoots && items.Shadow3) {
                 return "available";
             }
             return "unavailable";
@@ -1357,7 +1435,7 @@ var chests = [
         },
     },
     {
-        name: "Grotto - Skutulla and Bubble Left Chest",
+        name: "Grotto - Bombling Left Chest",
         x: "69.66%",
         y: "39.36%",
         isAvailable: function () {
@@ -1368,7 +1446,7 @@ var chests = [
         },
     },
     {
-        name: "Grotto - Skutulla and Bubble Right Chest",
+        name: "Grotto - Bombling Right Chest",
         x: "70.86%",
         y: "39.36%",
         isAvailable: function () {
@@ -1647,6 +1725,17 @@ var chests = [
         x: "77.75%",
         y: "32.64%",
         isAvailable: function () {
+            if (items.Dominion && items.Clawshot >=1 && items.Entry >=1) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
+        name: "Eldin Bridge Skybook Letter",
+        x: "77.75%",
+        y: "28.64%",
+        isAvailable: function () {
             if (items.Dominion) {
                 return "available";
             }
@@ -1656,6 +1745,17 @@ var chests = [
     {
         name: "Gorge Owl Statue Chest",
         x: "66%",
+        y: "48.8%",
+        isAvailable: function () {
+            if (items.Dominion) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
+        name: "Gorge Skybook Letter",
+        x: "67%",
         y: "48.8%",
         isAvailable: function () {
             if (items.Dominion) {
@@ -1676,8 +1776,30 @@ var chests = [
         },
     },
     {
+        name: "Castle Ruins Skybook Letter",
+        x: "46.38%",
+        y: "43.84%",
+        isAvailable: function () {
+            if (items.Dominion) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
         name: "Hylia Bridge Owl Statue Chest",
         x: "41.45%",
+        y: "43.44%",
+        isAvailable: function () {
+            if (items.Dominion && items.Clawshot) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
+        name: "Hylia Bridge Skybook Letter",
+        x: "42.45%",
         y: "43.44%",
         isAvailable: function () {
             if (items.Dominion && items.Clawshot) {
@@ -1691,7 +1813,18 @@ var chests = [
         x: "20.58%",
         y: "59.6%",
         isAvailable: function () {
-            if (items.Dominion) {
+            if (items.Dominion && canAccessDesert()) {
+                return "available";
+            }
+            return "unavailable";
+        },
+    },
+    {
+        name: "Gerudo Desert Skybook Letter",
+        x: "20.58%",
+        y: "61.1%",
+        isAvailable: function () {
+            if (items.Dominion && canAccessDesert()) {
                 return "available";
             }
             return "unavailable";
@@ -1798,8 +1931,8 @@ var chests = [
     },
     {
         name: "Tree Heart Piece",
-        x: "58%",
-        y: "58.88%",
+        x: "56%",
+        y: "60.88%",
         isAvailable: function () {
             if (items.Boomerang) {
                 return "available";
