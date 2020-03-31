@@ -1,8 +1,10 @@
 
-body{
-    background-color: rgb(0,0,0);
+body {
     margin: 0px;
     color: white;
+    background-image: url("images/none.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .flexcontainer {
@@ -27,8 +29,8 @@ body{
     color: red;
 }
 
-.tracker{
-    background-color: rgba(0,0,0,0);
+.tracker {
+    background-color: rgba(0,0,0, 1);
     position: relative;
     top: 0px;
     margin-left: auto;
@@ -94,8 +96,6 @@ label {
     height: 32px;
 }
 
-.true{
-}
 
 .false{
     -webkit-filter: grayscale(50%) brightness(30%); /* Safari 6.0 - 9.0 */
@@ -146,7 +146,7 @@ label {
     background-repeat: no-repeat;
 
     position: relative;
-    width: 925px;
+    min-width: 900px;
     height: 950px;
     left: 0px;
 }
@@ -172,9 +172,9 @@ label {
     background-repeat: no-repeat;
 
     position: relative;
-    width: 438px;
+    width: 20%;
     height: 888px;
-    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .chest{
@@ -281,4 +281,21 @@ label {
 
 .mapspan:hover .tooltip {
     visibility: visible;
+}
+
+.twilighttest {
+    z-index: 20;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 1%;
+    display: inline-block;
+}
+
+.credits {
+    background-color: black;
+}
+
+.checkCounter {
+    background-color: black;
+    margin-left: 200px;
 }

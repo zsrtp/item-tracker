@@ -1,0 +1,26 @@
+----------------------------------------------------
+Version 1.2
+
+Updated Logic!
+
+Updated logic and made it more flushed out
+
+Added a check counter to keep track of available and remaining checks
+
+Added a bar that sets the distance between the map tracker and item tracker
+
+Added the option to change the background image of the tracker
+
+Added a bar that sets the opacity of the item tracker
+
+Kudos:
+
+This tracker could not be what it is without the help and guidence of amazing people, please support them and their projects as well!
+
+TreZc0: https://github.com/TreZc0 TestRunner: https://github.com/TestRunnerSRL
+-----------------------------------------------------
+Version 1.01 
+
+Fixed a bug where clicking the "reset layout" button would not reset the layouts for the item tracker or map tracker
+Updated logic for Faron Woods to account for the lanturn being needed to go through the cave.
+------------------------------------------------------

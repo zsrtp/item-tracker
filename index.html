@@ -34,10 +34,15 @@
 
             });
         }
+        var dungeonChest = 0;
+        var dungeonChestOld = 0;
+        var c = 0;
     </script>
     <script src="script/main.js"></script>
     <div id='layoutdiv'>
         <div id='itemdiv' oncontextmenu="gridItemRClick()" class='itemdiv'>
+        </div>
+        <div id='twilighttest' class='twilighttest'>
         </div>
         <div id='mapdiv' class='mapdiv'>
             <div id='submapdiv' class='submapdiv'>
@@ -45,6 +50,7 @@
                 <hr style="margin-top: 4px; margin-bottom: 4px">
                 <ul onselectstart="return false" id='submaplist' style="margin-top: 4px; margin-bottom: 4px; overflow-y: auto; height: 232px;"></ul>
             </div>
+            <div id='checkCounter' style="background-color: black; position:relative; margin-left: 70%; margin-top: 935px; margin-botton: 0px;">4</div>
         </div>
     </div>
 
@@ -72,6 +78,23 @@
             <input type='radio' name='mapposition' value='Side' checked='true' onclick="setOrder(false)">Side
             <input type='radio' name='mapposition' value='Below' onclick="setOrder(true)">Below<br>
         </fieldset>
+        <fieldset>
+            <legend>Cosmetic Changes</legend>
+            Map Distance<input type="range" name='trackerDistance' id='trackerDistanceID' value='1' max='100' min='0' onchange="setDistance('twilighttest', this)">
+            <span id='twilighttestsize'>1%</span><br>
+            Tracker Opacity<input type="range" name='trackerOpacity' id='trackerOpacityID' value='100' max='100' min='0' onchange="setOpacity('tracker', this)">
+            <span id='trackersize'>100%</span><br>
+
+
+            Background Image:
+            <select>
+                <option id="none">None</option>
+                <option id="castle">Castle</option>
+                <option id="meadow">Meadow</option>
+                <option id="bridge">Bridge</option>
+            </select>
+            <button onclick="setBackground()">Set</button>
+        </fieldset>
     </fieldset>
     <table id='itemconfig' class='itemconfig' style='display:none'></table>
     <script>
@@ -80,7 +103,12 @@
     <br/>
     <br/>
     <footer style='bottom:0; width:100%; text-align: center; position: relative; color:grey'>
-        Twilight Princess Randomizer Tracker v1.2 BETA 
+        <center>
+        <div id='credits' style="background-color:black; width:25%; text-align: center;">
+            Twilight Princess Randomizer Tracker v1.2 by Lunar Soap<br />
+            With help and inspiration from <a href="https://github.com/TreZc0">TreZc0</a> and <a href="https://github.com/TestRunnerSRL">TestRunner</a>
+        </div>
+        </center>
     </footer>
 </body>
 </html>

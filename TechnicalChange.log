@@ -1,4 +1,85 @@
--------------------------------------------------------
+---------------------------------------------------------------------------------------------
+Version 1.2
+
+-- in \index.html
+
+Added: 
+	var dungeonChest = 0;
+        var dungeonChestOld = 0;
+        var c = 0;
+	<div id='twilighttest' class='twilighttest'>
+        </div>
+      	<div id='checkCounter' style="background-color: black; position:relative; margin-left: 70%; margin-top: 935px; margin-botton: 0px;">4</div>
+        </div>   
+ 
+        <fieldset>
+            <legend>Cosmetic Changes</legend>
+            Map Distance<input type="range" name='trackerDistance' id='trackerDistanceID' value='1' max='100' min='0' onchange="setDistance('twilighttest', this)">
+            <span id='twilighttestsize'>1%</span><br>
+            Tracker Opacity<input type="range" name='trackerOpacity' id='trackerOpacityID' value='100' max='100' min='0' onchange="setOpacity('tracker', this)">
+            <span id='trackersize'>100%</span><br>
+            Background Image:
+            <select>
+                <option id="none">None</option>
+                <option id="castle">Castle</option>
+                <option id="meadow">Meadow</option>
+                <option id="bridge">Bridge</option>
+            </select>
+            <button onclick="setBackground()">Set</button>
+        </fieldset>
+
+--in /scripts/chests.js
+
+Added:
+	
+    c = document.getElementsByClassName("mapspan chest available").length;
+    d = document.getElementsByClassName("mapspan dungeon available").length;
+
+--in /scripts/main.js
+
+Added:
+	
+	var opened = 0;
+	var Dopened = 0;
+	c = document.getElementsByClassName("mapspan chest available").length;
+	opened = document.getElementsByClassName("mapspan chest opened").length;
+	document.getElementById('checkCounter').innerHTML = "Checks: " + (dungeonChest + c) + " available, " + (344 - opened - Dopened) + " Remaining";
+
+	if (dungeons[d].chestlist[c].isOpened) {
+        	sender.className = 'DCopened';
+        	Dopened++;
+    	}
+
+    	else {
+        	sender.className = 'DCunavailable';
+        	Dopened--;
+    	}
+
+    	document.getElementById('trackersize').innerHTML = "100%"; 
+    	document.body.style.backgroundImage = "url('images/none.png')";
+
+Updated:
+	function init() {
+    		populateMapdiv();
+ 		populateItemconfig();
+
+   		loadCookie();
+   		saveCookie();
+		}
+
+To:
+
+	function init() {
+    		populateMapdiv();
+    		populateItemconfig();
+    		c = document.getElementsByClassName("mapspan chest available").length;
+    		opened = document.getElementsByClassName("mapspan chest opened").length;
+    		document.getElementById('checkCounter').innerHTML = "Checks: " + (dungeonChest + c) + " available, " + (344 - opened - Dopened) + " Remaining";
+
+		loadCookie();
+    		saveCookie();
+		}
+-------------------------------------------------------------------------------------------------------
 Version 1.01
 
 --in \scripts\main.js:
