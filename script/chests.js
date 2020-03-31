@@ -61,9 +61,6 @@ function shootPew()
     return (hasBoom() && items.Bow);
 }
 
-function canPlay(song){
-    return (song && items.Ocarina);
-}
 
 //Need lanturn to burn the web at the entrance and sword to get past Golden Wolf
 function canAccessForest() {
@@ -751,15 +748,8 @@ var dungeons = [
             'Heart Piece Chest': { isAvailable: function () { 
                 return canSmash() && items.Lanturn; }, },
         },
-        isBeatable: function() {
-            if ((canPlay(items.SariasSong) || canPlay(items.MinuetofForest)) && items.Hookshot && items.Glove  && items.Bow) {
-                if (this.canGetChest() == 'available') {
-                    return 'available';
-                }
-                return 'possible';
-            } else {
-                return "unavailable";
-            }
+        isBeatable: function () {
+            return this.canGetChest();
         },
         canGetChest: function() {
             return generalCanGetChest(this.chestlist);
