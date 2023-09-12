@@ -1,7 +1,5 @@
 # tpitemtracker 1.2 
 
-[https://tracker.tpspeed.run](https://tracker.tpspeed.run)
-
 A map tracker for The Legend of Zelda: Twilight Princess
 
 Version 1.2: Logic and Cosmetics
